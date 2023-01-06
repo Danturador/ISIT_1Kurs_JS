@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            document.write("Задание 1" + "<br>");
+            var a, b, c, d, max, min, indexMax = 0, indexMin = 0;
+
+            a = 6 - Math.PI + 3 * Math.pow(Math.E, 8);
+            b = 2 * Math.cos(4) + Math.cos(12) + 8 - Math.pow(Math.E, 3);
+            c = 3 * Math.sin(9) + Math.log(5) + 3;
+            d = 2 * Math.tan(5) + 6 - Math.PI + 5;
+
+            var myArray = new Array(a, b, c, d);
+            max = myArray[0];
+            min = myArray[0];
+            for (var i = 0; i < myArray.length; i++)
+            {
+                if(max < myArray[i]) {
+                    max = myArray[i];
+                    indexMax = i;
+                }
+                else if(min > myArray[i]) {
+                    min = myArray[i];
+                    indexMin = i;
+                }
+            }
+            document.write("max = " + Math.round(max) + " номер: " + indexMax + "<br>" + "min = " + Math.round(min) + " номер: " + indexMin + "<br>");
+            // Задание 2
+            document.write("Задание 2" + "<br>");
+            document.write("Array.from: " + Array.from('Hello') + "<br>" + "Array.of: " + Array.of(7, 8, 3, 50) + "<br>");
+            // Задание 3
+            document.write("Задание 3" + "<br>");
+            var methods = ["pow","pop","push","shift","round","floor","sline","sort"];
+
+            var arrayMethods = ["pop", "push", "sline", "sort", "shift"];
+            var mathMethods = ["pow", "floor", "round"];
+
+            var newArrayArrayMethods = new Array();
+            var newArrayMathMethods = new Array();
+            var a = 0, b = 0;
+            document.write("Исходный массив: " + "<br>");
+            for(let i = 0; i < methods.length; i++){
+                document.write(methods[i] + "<br>");
+                for(let j = 0; j < arrayMethods.length; j++){
+                    if (methods[i] === arrayMethods[j]) {
+                        newArrayArrayMethods[a] = methods[i];
+                        a++;
+                    }
+                }
+                for(let k = 0; k < mathMethods.length; k++){
+                    if (methods[i] == mathMethods[k]) {
+                        newArrayMathMethods[b] = methods[i];
+                        b++;
+                    }
+                }
+            }
+            newArrayArrayMethods.push("concat");
+            newArrayMathMethods.unshift("sqrt");
+            document.write("Количество элементов: " + methods.length + "<br>");
+            document.write("Первый полученный массив: " + "<br>");
+            for(let i = 0; i < newArrayArrayMethods.length; i++){
+                document.write(newArrayArrayMethods[i] + "<br>");
+            }
+            document.write("Количество элементов: " + newArrayArrayMethods.length + "<br>");
+            document.write("Второй полученный массив: " + "<br>");
+            for(let k = 0; k < newArrayMathMethods.length; k++){
+                document.write(newArrayMathMethods[k] + "<br>");
+            }
+            document.write("Количество элементов: " + newArrayMathMethods.length + "<br>");
+            
+            // Задание 4
+            document.write("Задание 4" + "<br>");
+            var str = "Лученок Данила Александрович";
+            var fio = "";
+            var upperStr = str.toUpperCase();
+            var lowerStr = str.toLowerCase();
+            document.write(str.length + "<br>");
+            document.write(upperStr + "<br>");
+            document.write(lowerStr + "<br>");
+            document.write(str + "<br>");
+            for (let i = 0; i < str.length; i++)
+            {
+                if(str[i] == str[i].toUpperCase() && str[i] != " ") 
+                {
+                    fio += str[i].toUpperCase();
+                }
+            }
+            document.write(fio + "<br>");
+        </script>
+    </body>
+</html>

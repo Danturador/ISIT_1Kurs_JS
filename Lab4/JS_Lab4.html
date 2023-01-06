@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript">
+        document.write("Задание 1<br>");
+        var increase = Number(prompt("Сколько студентов зачислить?"));
+        var decrease = Number(prompt("Сколько студентов исключить?"));
+        var Gruppa = {
+            gr1: 25,
+            gr2: 23,
+            gr3: 28,
+            gr4: 30,
+            sub_stud: function(grNum, i) {
+                let out = "";
+                if (decrease >= this[grNum]) out = this[grNum];
+                else out = decrease;
+                document.write("Начальное кол-во учащихся в группе" + i + " : " + this[grNum] + ". Из них отчислено " + out);
+                this[grNum] -= decrease;
+                if (this[grNum] > 0) document.write(". Конечное число студентов: " + this[grNum] + "<br>");
+                else {
+                    document.write(". Студентов не осталось :( <br>");
+                    this[grNum] = 0;
+                }
+            },
+            add_stud: function(grNum, i) {
+                document.write("Начальное кол-во учащихся в группе" + i + " : " + this[grNum]);
+                this[grNum] += increase;
+                document.write(". Из них зачислено " + increase + ". Конечное число студентов: " + this[grNum] + "<br>");
+            }
+        };
+        var i = 1;
+        for (let key in Gruppa) {
+            if (typeof(Gruppa[key]) == "number") {
+                Gruppa.sub_stud(key, i);
+                Gruppa.add_stud(key, i);
+                console.log(key);
+            }
+            i++;
+        }
+        // Задание 2
+        document.write("<br>Задание 2<br>");
+        function StudentForm(name, lastName, physics, math, inform) {
+            this.name = name;
+            this.lastName = lastName;
+            this.physics = physics;
+            this.math = math;
+            this.inform = inform;
+
+            this.outputName = function() {
+                let fullName = "";
+                for (let key in this){
+                    if (typeof(this[key]) == "string") {
+                        fullName += " " + this[key];
+                    }
+                }
+                document.write("Полное имя:" + fullName + "<br>");
+            },
+            this.calculateTheAvarageScore = function() {
+                let avarageScore = 0;
+                for (let key in this){
+                    if (typeof(this[key]) == "number") {
+                        avarageScore += this[key];
+                    }
+                }
+                if (avarageScore != 0) document.write("Средний балл: " + (avarageScore / 3).toFixed(2) + "<br>");
+            }
+         };
+         StudentForm.prototype.fName = this.fName;
+        var firstStudent = new StudentForm("Данила", "Лученок", 67, 50, 80, "Александрович");
+        var secondStudent = new StudentForm("Игорь", "Войтенко", 56, 84, 77, "Сегреевич");
+        var thirdStudent = new StudentForm("Михаил", "Зубенко", 89, 46, 63, "Петрович");
+        var Student = {
+            firstStudent,
+            secondStudent,
+            thirdStudent
+        };
+        for (let key in Student){
+            Student[key].outputName();
+            Student[key].calculateTheAvarageScore();
+        }
+        // Задание 3
+        document.write("<br>Задание 3<br>");
+        var elem = +prompt("Какой элемент в массиве проверить? ");
+        var a, b, c, d;
+        
+        a = 6 - Math.PI + 3 * Math.pow(Math.E, 8);
+        b = 2 * Math.cos(4) + Math.cos(12) + 8 - Math.pow(Math.E, 3);
+        c = 3 * Math.sin(9) + Math.log(5) + 3;
+        d = 2 * Math.tan(5) + 6 - Math.PI + 5;
+        
+        var numberArray = new Array(a, b, c, d);
+        delete numberArray[3];
+        
+        function For(operation, index) {
+            if (operation == 0) {
+                document.write("Задание 'delete'<br>");
+                document.write("Массив: " );
+                for (let i = 0; i < numberArray.length; i++)    
+                {
+                    document.write(numberArray[i] + "; ");
+                }
+            }
+            else if (operation == 1){
+                document.write("<br>Задание 'In'<br>");
+                document.write("Элемент под индексом " + index + " есть в массиве?: " + (index in numberArray) + "<br>");
+            }
+        }
+        For(0);
+        For(1, elem);
+
+        var object = String(prompt("Введите объект (Gruppa, Student): "));
+        switch(object){
+            case "Gruppa": 
+                let propGruppa = String(prompt("Введите название свойства: "));
+                document.write("Свойство " + propGruppa + " есть? "+ (propGruppa in Gruppa) + "<br>");
+                break;
+            case "Student": 
+                let propStudent = String(prompt("Введите имя свойства для проверки: "));
+                var prop = String(prompt("Введите имя свойства для проверки: "));
+                switch(propStudent){
+                    default:
+                        document.write("Свойство " + prop + " есть? "+ (prop in Student) + "<br>");
+                        break;
+                    case "firstStudent": 
+                        document.write("Свойство " + prop + " есть? "+ (prop in Student.firstStudent) + "<br>");
+                        break;
+                    case "secondStudent":
+                        document.write("Свойство " + prop + " есть? "+ (prop in Student.secondStudent) + "<br>");
+                        break;
+                    case "thirdStudent":
+                        document.write("Свойство " + prop + " есть? "+ (prop in Student.thirdStudent) + "<br>");
+                        break;
+                }
+        }
+        document.write("<br>Задание 'Instanceof'<br>");
+        var arrayForInstance = new Array(Student, Gruppa, numberArray, "itsString");
+        var instanceOfArray = new Array(Array, Object, String);
+        var instance = Number(prompt("Элемент для проверки: Student(0), Gruppa(1), nameArr(2), itsString(3): "));
+        var type = Number(prompt("Проверить является ли элемент: Array(0), Object(1), String(2): "));
+        document.write("Instanceof: " + (arrayForInstance[instance] instanceof instanceOfArray[type]) + "<br>");
+        
+        document.write("<br>Задание 'Typeof'<br>");
+        function Typeof(int) {
+            return int;
+        }
+        var five = 5;
+        document.write("Функция возвращает: " + Typeof(five));
+        
+        var allValues = new Array(Student, Gruppa, Typeof);
+        for (let i = 0; i < allValues.length; i++){
+            document.write("<br> Тип созданного ранее объекта: ", typeof(allValues[i]));
+        }
+        for (key in Gruppa){
+            document.write("<br> Тип свойств в Gruppa: " + typeof(Gruppa[key]));
+        }
+        for (let key in Student){
+            document.write("<br> Тип свойств в Student " + key + ": " + typeof(key));
+            console.log(key);
+            for (let i in Student[key]){
+                if (typeof(Student[key][i]) != "function") document.write("<br> Тип свойств в Student " + Student[key][i] + ": " + typeof(Student[key][i]));
+                else document.write("<br> Тип свойств в Student: " + typeof(Student[key][i]));
+            }
+        }
+        </script>
+    </head>
+</html>

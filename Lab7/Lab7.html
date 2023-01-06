@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <title> Form </title>
+    </head>
+    <body>
+        <form name="firstForm">
+            <fieldset>
+            <textarea value="ФИТ" placeholder="Название факультета" name='Fac'></textarea>
+            <p>
+                <input type='text' value="Лученок" placeholder="Фамилия" name='lastName' /><br>
+                <input type='text' value="Данила" placeholder="Имя" name='firstName' />
+            </p>
+            <p>Специальность
+            <select name="Spec">
+                <option value="ИСИТ"> ИСИТ </option>
+                <option value="ПОИТ"> ПОИТ </option>
+                <option value="ПОИБМС"> ПОИБМС </option>
+                <option value="ДЭЙВИ"> ДЭЙВИ </option>
+            </select>
+            </p>
+
+            <p>Курс:
+                <input type='radio' name='kurs' value='1' /> 1
+                <input type='radio' name='kurs' value='2' /> 2
+                <input type='radio' name='kurs' value='3' /> 3
+                <input type='radio' name='kurs' value='4' /> 4
+            </p>
+            <p>Предметы <br>
+                <input type='checkbox' name='subject' value='ОИТ' /> ОИТ
+                <input type='checkbox' name='subject' value='ОАП' /> ОАП
+                <input type='checkbox' name='subject' value='История' /> История
+                <input type='checkbox' name='subject' value='Физика' /> Физика
+                <input type='checkbox' name='subject' value='Математика' /> Математика
+            </p>
+            <p>
+                <button> Submit </button>
+                <button> Reset </button>
+            </p>
+            <p>
+                <button onclick="Print()"> Напечатать </button>
+            </p>
+            </fieldset>
+        </form>
+        
+        </body>
+        <script src="Lab7.js"></script>
+    </html>

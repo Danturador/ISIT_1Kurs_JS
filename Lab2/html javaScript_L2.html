@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            td {
+                text-align: center;
+            }
+        </style>
+        <script type="text/javascript">
+        	// Задание 1
+            function task1(){
+                alert('Бронирование номеров в отеле "Морская звезда".');
+                let name = prompt("Введите имя:");
+                let choice = confirm('Вы действтельно хотите забронировать номер?' + '\n' +
+                'Нажмите ОК, чтобы подтвердить действие.');
+                if(choice)
+                {
+                       alert("Место забранировано на имя " + name + ". Ваш номер: 326.");
+                }
+                else alert("Операция бронирования была прервана.");
+            }
+            // Задание 2
+            //2.1
+            function task2_1(){
+                let firstValue = +prompt('Введите первое число:');
+                let secoundValue = +prompt('Введите второе число:');
+                console.log(firstValue + secoundValue);
+            }
+            //2.2
+            function task2_2(){
+                let firstValue = prompt('Введите первое число:');
+                let secoundValue = prompt('Введите второе число:');
+                console.log(firstValue + secoundValue);
+            }
+            //2.3
+            function task2_3(){
+                let value = +prompt('Введите первое число:');
+                let string = prompt('Введите второе число:');
+                console.log(value + string);
+            }
+            //2.4
+            function task2_4(){
+                let string = prompt('Введите первое число:');
+                let value = +prompt('Введите второе число:');
+                console.log(string + value); 
+            }
+            //2.5
+            var task2_5 = () => {
+                document.write('<p style= "color: red; font-size: 75px; font-family: Arial"> Результатом сложения строки и числа всегда будет строка </p>');
+                console.log("Результатом сложения строки и числа всегда будет строка");
+            }
+            // Задание 3
+            function task3(){    
+                let x = +24;
+                let y = +16;
+                let firstValue = (43*x-52*y) + 525;
+                let secoundValue = ((9*x+2*y)/2 - 12)/4;
+                console.log("Первое выражение: (43*x-52*y) + 525 = " + firstValue);
+                console.log("Второе выражение: ((9*x+2*y)/2 - 12)/4 = " + secoundValue);
+                console.log("Остаток деления " + firstValue + " на " + secoundValue + " будет " + (firstValue % secoundValue));
+            }
+            // Задание 4
+            function task4(){ 
+                let int = prompt("Введите число от 5 до 15 или от 32 до 65")
+                if (int >= 5 && int <= 15 || int >= 32 && int <= 65) alert("Число " + int + " находится в заданном диапозоне.");
+                else alert("Число " + int + " не находится в заданном диапазоне.");
+            }
+            // Задание 5
+            function task5()
+            {
+                let value = 7;
+                let input = prompt("Угадай число от 1 до 9")
+                if (input == value) 
+                {
+                    alert("Поздравляю! Вы угадали число!");
+                }
+                else if (input < value) 
+                {
+                    alert("Я загадал число больше, чем " + input); 
+                }
+                else if (input > value && input <= 9) 
+                {
+                    alert(input + " больше, чем число, что я загадал.");
+                }
+                else 
+                {
+                    alert ("Вы вышли за диапазон.");
+                }
+            }
+            // Задание 6
+            function task6(){
+                let data = +prompt("Введите сегоднешнюю дату: ");
+                if (data >= 1 && data <= 30) {
+                    switch (data) {
+                        case 5:
+                        case 12:
+                        case 19:
+                        case 26:
+                            alert("Сегодня понедельник.");
+                            break;
+                        case '6, 13, 20, 27':
+                            alert("Сегодня вторник.");
+                            break;
+                        case 7:
+                        case 14:
+                        case 21:
+                        case 27:
+                            alert("Сегодня среда.");
+                            break;
+                        case 8:
+                        case 15:
+                        case 22:
+                        case 29:
+                            alert("Сегодня четверг.");
+                            break;
+                        case 9:
+                        case 16:
+                        case 23:
+                        case 30:
+                            alert("Сегодня пятница.");
+                            break;
+                        case 3:
+                        case 10:
+                        case 17:
+                        case 24:
+                            alert("Сегодня суббота.");
+                            break;
+                        case 4:
+                        case 11:
+                        case 18:
+                        case 25:
+                            alert("Сегодня воскресенье.");
+                            break;
+                    }
+                }
+                else alert("Дата введена некорректно!");
+            }
+            // Задание 7
+            function task7(){
+                var binaryNumberSystem = -0b1011;
+                var octalNumberSystem = 0O1354620;
+                var hexadecimalNumberSystem = 0XF2569ADC;
+                alert("Системы счисления: " + '\n' +
+                    "Двоичная: " + binaryNumberSystem + '\n' +
+                    "Восьмеричная: " + octalNumberSystem + '\n' +
+                    "Шестнадцатеричная: " + hexadecimalNumberSystem);
+            }
+            // Задание 8
+            function task8(){
+                try {
+                    prompt('Введите что-нибудь');
+                    alert('Вы ввели: ' + input);
+                } catch(Err) {
+                    alert('Ошибка ' + Err.name + ": " + Err.message + "\n" + Err.stack);
+                }
+            }
+
+        </script>
+    </head>
+    <body id="body">
+        <h1>
+            Лабораторная работа No2. Функции. Операторы цикла.
+            Объекты Math, Number
+        </h1>
+
+        <h3> Задание 1 </h3>
+        <button onclick="task1()"> Задание 1</button>
+        <button onclick="task2_1()"> Задание 2_1 </button>
+        <button onclick="task2_2()"> Задание 2_2 </button>
+        <button onclick="task2_3()"> Задание 2_3 </button>
+        <button onclick="task2_4()"> Задание 2_4 </button>
+        <button onclick="task2_5()"> Задание 2_5 (стрелочная) </button>
+        <button onclick="task3()"> Задание 3 </button>
+        <button onclick="task4()"> Задание 4 </button>
+        <button onclick="task5()"> Задание 5 </button>
+        <button onclick="task6()"> Задание 6 </button>
+        <button onclick="task7()"> Задание 7 </button>
+        <button onclick="task8()"> Задание 8 </button>
+        <script src="L2_task3(1).js"></script>
+        
+        <h3> Задание 2 </h3>
+        <table id="task_2"  width="100%" cellspacing="0" border="1">
+            
+        </table>
+        <h3> Задание 3 </h3>
+    
+        <table id="task_3" width="100%" cellspacing="0" border="1">
+            <tr>
+                <td> Радиус </td>
+                <td> Площадь круга </td>
+                <td> Длина окружности </td>
+            </tr>
+        </table>
+        <h3> Задание 4 </h3>
+    
+        <table id="task_4" width="100%" cellspacing="0" border="1">
+            <tr>
+                <td> Число </td>
+                <td> Метод </td>
+                <td> Результат </td>
+                <td> Описание метода </td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            //Задание 2
+            var task_2 = document.querySelector("#task_2");
+            var a = +prompt('Введите кол-во строк: ');
+            var b = +prompt('Введите кол-во столбца: ');
+            var result = 'x ';
+            for (var i = 0; i < a + 1; i++)
+            {
+                var tr = document.createElement("tr");
+                for(var j = 0; j < b + 1; j++)
+                {
+                        var td = document.createElement("td");
+                    tr.appendChild(td);
+                    if(i == 0 && j > 0){
+                    result = '[' + j + ']';
+                } 
+                else if(j == 0 && i>0){
+                    result = '[' + i + '] ';
+                } 
+                else if(i>0 && j>0){
+                    result = (i*j) + ' ';
+                }      
+                td.innerHTML = result; 
+            }
+            task_2.appendChild(tr);
+        }
+        //Задание 3
+        function createCols(){
+            do {
+                    var td = document.createElement("td");
+                    tr.appendChild(td);
+                    if(j == 2){
+                        result = (Math.PI * (task2_a * 2));
+                    } 
+                    else if(j == 0){
+                        result = task2_a;
+                        task2_a += 0.3;
+                    } 
+                    else if(j == 1){
+                        result = (Math.PI * (task2_a)^2);
+                    }
+                    td.innerHTML = result.toFixed(1); 
+                    j++;
+                }
+                while(j < 3);
+                j = 0;
+        } 
+            var task_3 = document.querySelector("#task_3");
+            var task2_a = +prompt('Введите начальный радиус: ');
+            var task2_b = +prompt('Введите конечный радиус: ');
+            var result = 0;
+            var j = 0;
+            while (task2_a <= task2_b) {
+                var tr = document.createElement("tr");
+                createCols();
+                task_3.appendChild(tr);
+            }
+        //Задание 4
+            var task_4 = document.querySelector("#task_4");
+            var x = +prompt();
+            var y = +prompt();
+            var result = '';
+        
+            function create4Cols(val){
+            var result = '';
+            for (var i = 0; i < 4; i++)
+            {
+                var tr = document.createElement("tr");
+                for(var j = 0; j < 4; j++)
+                {
+                    var td = document.createElement("td");
+                    tr.appendChild(td);
+                    if(j == 0){
+                        result = val;
+                        td.innerHTML = result;
+                    } 
+                    else if(j == 1){
+                        if(i == 0){
+                            result = "toString(16)";
+                            td.innerHTML = result; 
+                        }
+                        else if(i == 1){
+                            result = "toFixed(1)";
+                            td.innerHTML = result; 
+                        }
+                        else if(i == 2){
+                            result = "toExponential(3)";
+                            td.innerHTML = result; 
+                        }                        
+                        else if(i == 3){
+                            result = "toPrecision(3)";
+                            td.innerHTML = result; 
+                        }
+                        td.innerHTML = result;
+                        result = val;
+                    } 
+                    else if(j == 2){
+                        if(i == 0){
+                            result = result.toString(16);
+                        }
+                        else if(i == 1){
+                            result = result.toFixed(1);
+                        }
+                        else if(i == 2){
+                            result = result.toExponential(3);
+                        }                        
+                        else if(i == 3){
+                            result = result.toPrecision(3);
+                        }
+                        td.innerHTML = result;
+                    }    
+                    else if(j == 3)  {
+                        if(i == 0){
+                            result = "возвращает строковое представление числа в системе счисления с указанным основанием";
+                        }
+                        else if(i == 1){
+                            result = "представляет число в форме с фиксированным количеством цифр после точки";
+                        }
+                        else if(i == 2){
+                            result = "представляет число в экспоненциальной форме";
+                        }                        
+                        else if(i == 3){
+                            result = "представляет число с заданным общим количеством значащих цифр";
+                        }
+                        td.innerHTML = result;
+                    }
+                }
+                    // td.innerHTML = result;
+                task_4.appendChild(tr);
+            }
+            }
+        create4Cols(x);
+        create4Cols(y);
+        </script>
+    </body>
+</html>

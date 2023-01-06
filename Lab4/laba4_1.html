@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Gruppa(students){
+            this.students=students;
+            this.add_stud = function add_stud(kolvo_add){
+                this.students += kolvo_add;
+                console.log("В группу вступило " + kolvo_add + " человек. Всего в группе " + this.students + " человек");
+                
+            }
+            this.sub_stud = function sub_stud(kolvo_del){
+                this.students -= kolvo_del;
+                if (this.students < 0){
+                    this.students += kolvo_del;
+                    console.log("Отрицательное кол-во учеников!");
+                }
+                else{
+                    console.log("Из группы удалено " + kolvo_del+" человек. Всего в группе " + this.students + " человек");
+                }                
+            }
+        }
+        gruppa1 = new Gruppa(25);
+        gruppa2 = new Gruppa(13);
+        gruppa3 = new Gruppa(24);
+        gruppa1.add_stud(2);
+        gruppa1.sub_stud(1);
+        gruppa1.sub_stud(50);
+        gruppa2.add_stud(12);
+        gruppa3.sub_stud(23);
+        document.write("1 Группа" + gruppa1.students + "<br>");
+        document.write("2 Группа" + gruppa2.students + "<br>");
+        document.write("3 Группа" + gruppa3.students + "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

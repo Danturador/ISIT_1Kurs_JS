@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang ="ru">
+	<head>
+		<meta charset="utf-8">
+		<title> Создание окон </title>
+    </head>
+    <script type="text/javascript">
+    var i = 0;
+    var newWindow = [];
+    var windowName;
+    var numberOfPage;
+    function OpenNewWindow(){
+        windowName = String(prompt("Введите имя окна"));
+        i++;
+        return windowName;
+    }
+    function CloseWindow(){
+    if (newWindow.length != 0) {
+        newWindow[i].close();
+        i--;
+    }
+    }
+     function AddTextToEvery(){
+        for(let key in newWindow){
+            newWindow[key].document.write("Имя данного окна: " + newWindow[key].name + "<br>");
+        }
+    }
+    function AddTextToCurrent(){
+        numberOfPage = Number(prompt("Введите на какую страницу вывести текст: "));
+        newWindow[numberOfPage].document.write("Имя данного окна: " + newWindow[numberOfPage].name + "<br>");
+    }
+    </script>
+	<body>
+        <button onclick='
+            OpenNewWindow();
+            newWindow[i] = window.open("", windowName, "top=100, left=1000, width=250, height=250")'> Открыть новое окно </button>
+        <button onclick='CloseWindow()'> Закрыть окно </button>
+        <button onclick='AddTextToEvery()'> Добавить текст на все страницы </button>
+        <button onclick='AddTextToCurrent()'> Добавить текст на конкретную страницу </button>
+        <table id="table" width="100%" cellspacing="0" border="1"></table>
+    </body>
+    <script>
+    var prop = ["Свойство", "Вся информация о браузере пользователя: ", "версия браузера", "название браузера", "кодовое название браузера", "ОС, которую использует пользователь", "включена ли поддержка Java в браузере", "ширину и высоту экрана", "глубину цвета", "URL, которые были посещены в данном окне браузера", "URL текущего документа", "путь к загруженному документу", "имя домена загруженного документа"];
+    var value = ["Значение", navigator.userAgent, navigator.appVersion, navigator.appName, navigator.appCodeName, navigator.platform, navigator.javaEnabled(), `Ширина :${screen.width} и высота : ${screen.height}`, screen.colorDepth, history.length, location.href, location.pathname, location.hostname];
+    table = document.querySelector("#table");
+    for (let k = 0, counterK = 0; k < 13; k++, counterK++){
+        var tr = document.createElement("tr");
+        for(let j = 0; j < 2; j++){
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            if (j == 0) td.innerText = prop[counterK];
+            else if (j == 1) td.innerHTML = value[counterK];
+        }
+        table.appendChild(tr);
+    }
+    </script>
+</html>
